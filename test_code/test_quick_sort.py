@@ -2,45 +2,26 @@ import pytest
 import sys
 
 from common.helper_functions import create_array
-from Sorting.sorting import bubble_sort, insertion_sort
-
-
-@pytest.mark.parametrize(
-    "n",
-    [
-        (10),
-        (20),
-        (30),
-        (100),
-        (1000),
-    ],
-)
-def test_bubble_sort(n):
-    arr1 = [i for i in range(-n, n)]
-
-    arr2 = create_array(n)
-    bubble_sort(arr2)
-
-    assert arr1 == arr2
-
+from Sorting.sorting import quick_sort
 
 @pytest.mark.parametrize(
     "n",
     [
         (10),
-        (20),
-        (30),
+        (50),
         (100),
         (1000),
     ],
 )
-def test_insertion_sort(n):
+def test_quick_sort(n):
     arr1 = [i for i in range(-n, n)]
 
     arr2 = create_array(n)
-    insertion_sort(arr2)
+    N = len(arr2)
+    quick_sort(arr2,0,N - 1)
 
     assert arr1 == arr2
+
 
 
 if __name__ == "__main__":
